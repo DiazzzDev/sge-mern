@@ -5,7 +5,7 @@ import teacherRoutes from "./src/routes/teachers.js";
 import studentRoutes from "./src/routes/students.js";
 import registerTeacherRoutes from "./src/routes/registerTeachers.js";
 import registerStudentRoutes from "./src/routes/registerStudent.js";
-import paymentRoutes from "./src/routes/paymentRoutes.js";
+import paymentRoutes from "./src/routes/payments.js";
 import logoutRoutes from "./src/routes/logout.js";
 import subjectRoutes from "./src/routes/subject.js"
 import specialtyRoutes from "./src/routes/speciality.js"
