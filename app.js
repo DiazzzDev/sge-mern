@@ -34,5 +34,4 @@ app.use("/api/logout", logoutRoutes)
 app.use("/api/subjects", subjectRoutes)
 app.use("/api/specialties", specialtyRoutes)
 
-
 export default app

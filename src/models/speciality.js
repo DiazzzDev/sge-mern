@@ -9,4 +9,6 @@ const specialitySchema = new Schema({
     strict: false
 })
 
+
+
 export default model("Speciality", specialitySchema)

@@ -14,12 +14,8 @@ controllerTeachers.get = async (req, res) => {
 
 controllerTeachers.delete = async (req, res) => {
     try {
-        const teacher = await teachersModel.findByIdAndDelete(req.params.id)
-        
-        if(!teacher) {
-            return res.status(404).json("Teacher not found")
-        }
-        return res.status(204)
+        await teachersModel.findByIdAndDelete(req.params.id)
+        return res.status(200).json({message: "Teacher deleted"})
     } catch (error) {
         console.log("Error: " + error)
         return res.status(500).json({message: "Internal server error"})
@@ -41,12 +37,13 @@ controllerTeachers.put = async (req, res) => {
             loginAttempts,
             timeOut
         } =  req.body
-        
         if(!teacherExists) {
             return res.status(404).json("Teacher not found")
         }
 
-        await teachersModel.findByIdAndUpdate({
+        await teachersModel.findByIdAndUpdate(
+            req.params.id,
+            {
             name, 
             lastName, 
             email, 
@@ -57,7 +54,7 @@ controllerTeachers.put = async (req, res) => {
             isVerified,
             loginAttempts,
             timeOut
-        }, req.params.id)
+        }, {new: true})
 
         return res.status(200).json({message:"Teacher updated succesfully"})
     } catch (error) {
