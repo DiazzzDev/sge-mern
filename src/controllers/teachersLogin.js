@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import jsonwebtoken from "jsonwebtoken"
-import studentModel from "../models/students.js";
+import teacherModel from "../models/teachers.js";
 import {config} from "../../config.js"
 
 const controllerLogin = {}
@@ -8,7 +8,7 @@ const controllerLogin = {}
 controllerLogin.login = async (req, res) => {
     try {
         const {email, password} = req.body
-        const userFound = await studentModel.findOne({email})
+        const userFound = await teacherModel.findOne({email})
 
         if(!userFound){
             return res.status(404).json({message: "User not found"})

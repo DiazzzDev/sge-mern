@@ -5,6 +5,8 @@ import teacherRoutes from "./src/routes/teachers.js";
 import studentRoutes from "./src/routes/students.js";
 import registerTeacherRoutes from "./src/routes/registerTeachers.js";
 import registerStudentRoutes from "./src/routes/registerStudent.js";
+import loginStudentRoutes from "./src/routes/studentsLogin.js"
+import loginTeacherRoutes from "./src/routes/teachersLogin.js"
 import paymentRoutes from "./src/routes/payments.js";
 import logoutRoutes from "./src/routes/logout.js";
 import subjectRoutes from "./src/routes/subject.js"
@@ -27,8 +29,10 @@ app.use(express.json())
 
 app.use("/api/teachers", teacherRoutes)
 app.use("/api/registerTeachers", registerTeacherRoutes)
+app.use("/api/loginTeachers", loginTeacherRoutes)
 app.use("/api/students", studentRoutes)
 app.use("/api/registerStudents", registerStudentRoutes)
+app.use("/api/loginStudents", loginStudentRoutes)
 app.use("/api/payments", paymentRoutes)
 app.use("/api/logout", logoutRoutes)
 app.use("/api/subjects", subjectRoutes)
